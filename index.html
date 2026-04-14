@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Pronta para Usar: 30 Prompts que Geram Resultado em 24h | Kadu Kruger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2332;
+            --blue-primary: #3b82f6;
+            --blue-glow: #60a5fa;
+            --blue-dark: #1e40af;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --green: #10b981;
+            --green-light: #34d399;
+            --red: #ef4444;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+            --text-light: #cbd5e1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #0a0e1a 0%, #0f172a 50%, #0a0e1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.08) 0%, transparent 50%);
+            animation: pulse-bg 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse-bg {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(59,130,246,0.15);
+            border: 1px solid rgba(59,130,246,0.3);
+            color: var(--blue-glow);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--blue-glow), var(--blue-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-sub {
+            font-size: clamp(16px, 2.5vw, 22px);
+            color: var(--text-gray);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero-sub strong {
+            color: var(--text-white);
+        }
+
+        .hero-pain {
+            font-size: 18px;
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--green), #059669);
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 20px 50px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(16,185,129,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 50px rgba(16,185,129,0.5);
+        }
+
+        .cta-price {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .cta-below {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        /* PROBLEMA */
+        .problema {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0f1629 100%);
+        }
+
+        .pain-list {
+            list-style: none;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .pain-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 17px;
+            color: var(--text-light);
+        }
+
+        .pain-list li .icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* SOLUCAO */
+        .solução {
+            background: #0f172a;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(59,130,246,0.15);
+            border-radius: 16px;
+            padding: 35px 25px;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(59,130,246,0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(59,130,246,0.1);
+        }
+
+        .product-card .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-white);
+        }
+
+        .product-card ul {
+            list-style: none;
+        }
+
+        .product-card ul li {
+            padding: 6px 0;
+            font-size: 15px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-card ul li::before {
+            content: '>';
+            color: var(--blue-primary);
+            font-weight: 700;
+        }
+
+        /* PROMPTS SHOWCASE */
+        .prompts-showcase {
+            background: var(--bg-dark);
+        }
+
+        .prompt-category {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .prompt-category h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .prompt-category .cat-desc {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .prompt-tag {
+            display: inline-block;
+            background: rgba(59,130,246,0.1);
+            border: 1px solid rgba(59,130,246,0.2);
+            color: var(--blue-glow);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            margin: 4px;
+        }
+
+        /* DADOS */
+        .dados {
+            background: #0f172a;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--blue-glow), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+
+        /* COMPARACAO */
+        .comparação {
+            background: var(--bg-dark);
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .compare-table th {
+            background: var(--bg-card);
+            padding: 18px 20px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-gray);
+            border-bottom: 2px solid rgba(59,130,246,0.2);
+        }
+
+        .compare-table th:last-child {
+            color: var(--blue-glow);
+        }
+
+        .compare-table td {
+            padding: 16px 20px;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .compare-table tr:nth-child(even) td {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .compare-table td:first-child {
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .compare-table td:nth-child(2) {
+            color: var(--red);
+        }
+
+        .compare-table td:last-child {
+            color: var(--green-light);
+            font-weight: 600;
+        }
+
+        /* TIMELINE */
+        .timeline {
+            background: #0f172a;
+        }
+
+        .timeline-items {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .timeline-items::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--blue-primary), var(--green));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--blue-primary);
+            border: 3px solid var(--bg-dark);
+        }
+
+        .timeline-item h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue-glow);
+            margin-bottom: 5px;
+        }
+
+        .timeline-item p {
+            font-size: 15px;
+            color: var(--text-gray);
+        }
+
+        /* DEPOIMENTOS */
+        .depoimentos {
+            background: var(--bg-dark);
+        }
+
+        .depo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .depo-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .depo-card .stars {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .depo-card blockquote {
+            font-size: 15px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .depo-card .author {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-white);
+        }
+
+        .depo-card .role {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* PRECO */
+        .preco {
+            background: linear-gradient(180deg, #0f172a 0%, #0a0e1a 100%);
+            text-align: center;
+        }
+
+        .price-box {
+            max-width: 550px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 2px solid rgba(59,130,246,0.3);
+            border-radius: 24px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue-primary), var(--green));
+        }
+
+        .price-old {
+            font-size: 22px;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            margin-bottom: 5px;
+        }
+
+        .price-new {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 72px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--green-light), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .price-parcela {
+            font-size: 16px;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .price-includes {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .price-includes li {
+            padding: 10px 0;
+            font-size: 15px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .price-includes li .check {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* GARANTIA */
+        .garantia {
+            background: var(--bg-dark);
+            text-align: center;
+        }
+
+        .garantia-box {
+            max-width: 650px;
+            margin: 0 auto;
+            background: rgba(16,185,129,0.05);
+            border: 1px solid rgba(16,185,129,0.2);
+            border-radius: 20px;
+            padding: 50px 40px;
+        }
+
+        .garantia-box .shield {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .garantia-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--green-light);
+        }
+
+        .garantia-box p {
+            font-size: 16px;
+            color: var(--text-gray);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* FAQ */
+        .faq {
+            background: #0f172a;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 16px;
+            font-weight: 600;
+            padding: 20px 25px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+
+        .faq-question .arrow {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+            color: var(--blue-primary);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 25px 20px;
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* URGENCIA */
+        .urgência {
+            background: var(--bg-dark);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .urgência h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(26px, 4vw, 40px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .urgência .choice {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .choice-bad {
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .choice-bad h4 {
+            color: var(--red);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .choice-bad p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        .choice-good {
+            background: rgba(16,185,129,0.08);
+            border: 1px solid rgba(16,185,129,0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .choice-good h4 {
+            color: var(--green-light);
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .choice-good p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #060810;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        footer a {
+            color: var(--blue-glow);
+            text-decoration: none;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            section { padding: 60px 15px; }
+            .product-grid { grid-template-columns: 1fr; }
+            .urgência .choice { grid-template-columns: 1fr; }
+            .price-box { padding: 35px 25px; }
+            .price-new { font-size: 56px; }
+            .cta-btn { font-size: 17px; padding: 18px 35px; }
+            .compare-table { font-size: 13px; }
+            .compare-table th, .compare-table td { padding: 12px 10px; }
+        }
+
+        /* ANIMACOES */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Novo Lançamento 2025</div>
+        <h1>Automatize <span>80% do Seu Trabalho</span> em 30 Minutos</h1>
+        <p class="hero-sub">Sem entender de programação. Sem cursos longos. <strong>Sem complicação.</strong></p>
+        <p class="hero-sub">30 Prompts de IA <strong>prontos para copiar e colar</strong> que geram resultado em 24h.</p>
+        <p class="hero-pain">Seus concorrentes já estão usando IA. Você está ficando para trás.</p>
+        <a href="#preco" class="cta-btn">
+            QUERO COMEÇAR AGORA
+            <span class="cta-price">Por apenas R$ 97,00</span>
+        </a>
+        <p class="cta-below">Acesso imediato. Garantia de 30 dias. Sem risco.</p>
+    </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema">
+    <div class="container fade-in">
+        <h2 class="section-title">Você está nesta situação?</h2>
+        <p class="section-subtitle">Se você se identificou com pelo menos 2 itens abaixo, este kit foi feito para você.</p>
+        <ul class="pain-list">
+            <li><span class="icon">&#10060;</span> Você sabe que IA é importante, mas não sabe por onde começar.</li>
+            <li><span class="icon">&#10060;</span> Você tentou usar ChatGPT, ficou confuso e desistiu.</li>
+            <li><span class="icon">&#10060;</span> Você gasta 2-3 horas por dia fazendo trabalho que a IA poderia fazer em 5 minutos.</li>
+            <li><span class="icon">&#10060;</span> Seus concorrentes estão crescendo mais rápido porque estão usando IA.</li>
+            <li><span class="icon">&#10060;</span> Você quer crescer, mas não tem tempo para aprender "cursos de 40 horas".</li>
+            <li><span class="icon">&#10060;</span> Você não sabe se vai funcionar no seu negócio específico.</li>
+        </ul>
+    </div>
+</section>
+
+<!-- SOLUCAO -->
+<section class="solução">
+    <div class="container fade-in">
+        <h2 class="section-title">IA Pronta para Usar</h2>
+        <p class="section-subtitle">Não é um curso. Não é teoria. E <strong>prático, testado e pronto para usar</strong>.</p>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="card-icon">&#128218;</div>
+                <h3>Modulo 1: Setup Rápido</h3>
+                <ul>
+                    <li>Configure ChatGPT/Claude GRATIS</li>
+                    <li>A Formula do Prompt Perfeito</li>
+                    <li>Erros que 99% cometem</li>
+                    <li>Comece em 10 minutos</li>
+                </ul>
+            </div>
+            <div class="product-card">
+                <div class="card-icon">&#128142;</div>
+                <h3>Modulo 2: Banco de 30 Prompts</h3>
+                <ul>
+                    <li>10 Prompts de Marketing</li>
+                    <li>10 Prompts de Atendimento</li>
+                    <li>10 Prompts de Gestão</li>
+                    <li>Todos prontos para copiar</li>
+                </ul>
+            </div>
+            <div class="product-card">
+                <div class="card-icon">&#9889;</div>
+                <h3>Modulo 3: Automações</h3>
+                <ul>
+                    <li>Email de Vendas Automático</li>
+                    <li>Post de Instagram Automático</li>
+                    <li>Atendimento WhatsApp com IA</li>
+                    <li>Sem saber programar</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROMPTS SHOWCASE -->
+<section class="prompts-showcase">
+    <div class="container fade-in">
+        <h2 class="section-title">O Que Você Vai Receber</h2>
+        <p class="section-subtitle">30 prompts testados, organizados por área. Basta copiar, colar e ver o resultado.</p>
+
+        <div class="prompt-category">
+            <h3>&#128226; Marketing & Vendas</h3>
+            <p class="cat-desc">10 prompts para atrair clientes e vender mais</p>
+            <span class="prompt-tag">Calendário 30 Dias Instagram</span>
+            <span class="prompt-tag">Copy para Anúncios</span>
+            <span class="prompt-tag">Roteiro de Reels</span>
+            <span class="prompt-tag">Estratégia de Promoções</span>
+            <span class="prompt-tag">SEO para Google</span>
+            <span class="prompt-tag">Email Marketing</span>
+            <span class="prompt-tag">Descrição de Produtos</span>
+            <span class="prompt-tag">Bio para Instagram</span>
+            <span class="prompt-tag">Script de Vendas WhatsApp</span>
+            <span class="prompt-tag">Análise de Público-Alvo</span>
+        </div>
+
+        <div class="prompt-category">
+            <h3>&#128172; Atendimento ao Cliente</h3>
+            <p class="cat-desc">10 prompts para atender melhor e fidelizar</p>
+            <span class="prompt-tag">Resposta WhatsApp Profissional</span>
+            <span class="prompt-tag">Reverter Reclamações</span>
+            <span class="prompt-tag">Criar FAQ Completo</span>
+            <span class="prompt-tag">Proposta Comercial</span>
+            <span class="prompt-tag">Follow-Up Automático</span>
+            <span class="prompt-tag">Pesquisa de Satisfação</span>
+            <span class="prompt-tag">Script de Cobrança</span>
+            <span class="prompt-tag">Onboarding de Clientes</span>
+            <span class="prompt-tag">Resposta a Avaliações</span>
+            <span class="prompt-tag">Mensagem Pós-Venda</span>
+        </div>
+
+        <div class="prompt-category">
+            <h3>&#128200; Gestão & Operações</h3>
+            <p class="cat-desc">10 prompts para organizar e escalar seu negócio</p>
+            <span class="prompt-tag">Análise de Concorrência</span>
+            <span class="prompt-tag">Planejamento de Metas</span>
+            <span class="prompt-tag">Redação de Vagas</span>
+            <span class="prompt-tag">Resumo de Reuniões</span>
+            <span class="prompt-tag">Contratos Simplificados</span>
+            <span class="prompt-tag">Auditoria Semanal</span>
+            <span class="prompt-tag">Plano de Ação 90 Dias</span>
+            <span class="prompt-tag">Analise Financeira</span>
+            <span class="prompt-tag">Treinamento de Equipe</span>
+            <span class="prompt-tag">Organizador de Tarefas</span>
+        </div>
+    </div>
+</section>
+
+<!-- DADOS -->
+<section class="dados">
+    <div class="container fade-in">
+        <h2 class="section-title">Por Que Agora?</h2>
+        <p class="section-subtitle">Os números não mentem. Quem não usar IA vai ficar para trás.</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">76%</div>
+                <div class="stat-label">dos pequenos negócios NÃO usam IA (porque não sabem como)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">89.5k</div>
+                <div class="stat-label">buscas/mês por "Como usar IA para negócio"</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">420%</div>
+                <div class="stat-label">crescimento da demanda por IA em 12 meses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10h+</div>
+                <div class="stat-label">economizadas por semana com os prompts certos</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARACAO -->
+<section class="comparação">
+    <div class="container fade-in">
+        <h2 class="section-title">Por Que Este Kit e Diferente?</h2>
+        <p class="section-subtitle">Compare com cursos tradicionais e veja a diferença.</p>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th>Aspecto</th>
+                    <th>Cursos Tradicionais</th>
+                    <th>Este Kit &#9989;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Duração</td>
+                    <td>40+ horas</td>
+                    <td>30 minutos para começar</td>
+                </tr>
+                <tr>
+                    <td>Formato</td>
+                    <td>Vídeos longos e teóricos</td>
+                    <td>Prompts prontos para copiar</td>
+                </tr>
+                <tr>
+                    <td>Resultado</td>
+                    <td>Teoria sem pratica</td>
+                    <td>Prático e imediato</td>
+                </tr>
+                <tr>
+                    <td>Preço</td>
+                    <td>R$ 297 - R$ 597</td>
+                    <td>R$ 97</td>
+                </tr>
+                <tr>
+                    <td>Atualização</td>
+                    <td>Conteúdo desatualizado</td>
+                    <td>Atualizado constantemente</td>
+                </tr>
+                <tr>
+                    <td>Suporte</td>
+                    <td>Nenhum ou limitado</td>
+                    <td>Acesso vitalício</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+    <div class="container fade-in">
+        <h2 class="section-title">Como Funciona na Prática</h2>
+        <p class="section-subtitle">Veja o que acontece depois que você compra.</p>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <h4>Dia 1: Você Recebe o Kit</h4>
+                <p>Acesso imediato ao e-book, banco de 30 prompts e templates de automação. Tudo no seu email em 2 minutos.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Dia 2: Você Começa</h4>
+                <p>Copia o primeiro prompt, cola no ChatGPT e vê a mágica acontecer em 30 segundos. Sem configuração complicada.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Dia 3-7: Você Implementa</h4>
+                <p>Usa 3-4 prompts diferentes por dia. Começa a economizar tempo real. Vê os primeiros resultados no seu negócio.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Semana 2: Você Escala</h4>
+                <p>Você já economizou 10+ horas. Tem conteúdo para 30 dias. Tem um sistema funcionando no piloto automático.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Mês 1: Você Transforma</h4>
+                <p>40+ horas economizadas. Mais tempo para vender. Mais clientes. Seu negócio funciona de forma mais inteligente.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+    <div class="container fade-in">
+        <h2 class="section-title">O Que Dizem Sobre Este Kit</h2>
+        <p class="section-subtitle">Resultados reais de quem já está usando.</p>
+        <div class="depo-grid">
+            <div class="depo-card">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"Implementei os prompts em 2 horas. Em uma semana, economizei 15 horas de trabalho. Agora tenho tempo para vender de verdade."</blockquote>
+                <div class="author">João Silva</div>
+                <div class="role">Dono de Agência de Marketing</div>
+            </div>
+            <div class="depo-card">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"Não entendia nada de IA. Agora estou criando conteúdo para 30 dias em 1 hora. Meu Instagram cresceu 40% em um mês."</blockquote>
+                <div class="author">Maria Santos</div>
+                <div class="role">Consultora de Beleza</div>
+            </div>
+            <div class="depo-card">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>"Os templates de automação mudaram meu negócio. Agora o WhatsApp responde sozinho. Tenho mais tempo para estratégia."</blockquote>
+                <div class="author">Carlos Oliveira</div>
+                <div class="role">Dono de Clínica Odontológica</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRECO -->
+<section class="preco" id="preco">
+    <div class="container fade-in">
+        <h2 class="section-title">Investimento</h2>
+        <p class="section-subtitle">Menos do que você gasta em um almoço por mês.</p>
+        <div class="price-box">
+            <p class="price-old">De R$ 497,00</p>
+            <p class="price-new">R$ 97</p>
+            <p class="price-parcela">ou 12x de R$ 9,70 no cartão</p>
+            <ul class="price-includes">
+                <li><span class="check">&#10003;</span> E-book Completo (Guia de Setup Rápido)</li>
+                <li><span class="check">&#10003;</span> Banco de 30 Prompts Prontos para Copiar</li>
+                <li><span class="check">&#10003;</span> Templates de Automação (Email, Instagram, WhatsApp)</li>
+                <li><span class="check">&#10003;</span> Bônus: Guia Anti-Bloqueio</li>
+                <li><span class="check">&#10003;</span> Bônus: Dicionário da IA (20 termos)</li>
+                <li><span class="check">&#10003;</span> Bônus: Checklist de Auditoria Semanal</li>
+                <li><span class="check">&#10003;</span> Acesso Vitalício + Atualizações</li>
+                <li><span class="check">&#10003;</span> Suporte via WhatsApp</li>
+            </ul>
+            <a href="SEU_LINK_HOTMART_AQUI" class="cta-btn" style="width:100%; text-align:center;">
+                QUERO COMEÇAR AGORA
+                <span class="cta-price">Acesso imediato. Garantia de 30 dias.</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia">
+    <div class="container fade-in">
+        <div class="garantia-box">
+            <div class="shield">&#128737;</div>
+            <h3>30 Dias de Garantia Incondicional</h3>
+            <p>Se você não economizar pelo menos 5 horas na primeira semana, devolvemos 100% do seu dinheiro. Sem perguntas. Sem burocracia. O risco é todo nosso.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <div class="container fade-in">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <p class="section-subtitle">Tire suas dúvidas antes de comprar.</p>
+
+        <div class="faq-item">
+            <button class="faq-question">Mas eu não entendo nada de IA... <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Você não precisa entender. Os prompts já estão prontos. Você só copia e cola. E como usar um template de Word. Se você sabe copiar e colar, você sabe usar este kit.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Vai funcionar no meu negócio específico? <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Sim. Os prompts funcionam em qualquer tipo de negócio. Você só muda os campos entre [COLCHETES] para a sua realidade. Funciona para clínicas, lojas, agências, consultórios, e-commerces e muito mais.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Quanto tempo leva para ver resultados? <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Você vê resultados no primeiro dia. Em uma semana, você terá economizado 10+ horas. No primeiro mês, 40+ horas. Os resultados são imediatos porque os prompts já estão prontos.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">E se eu não gostar? <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Você tem 30 dias para testar. Se não economizar tempo, devolvemos 100% do seu dinheiro. Sem perguntas. O risco é zero.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Preciso pagar alguma ferramenta de IA? <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Não. Os prompts funcionam com a versão GRATUITA do ChatGPT e do Claude. Você não precisa pagar nenhuma assinatura extra.</p></div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">Como recebo o produto? <span class="arrow">&#9660;</span></button>
+            <div class="faq-answer"><p>Imediatamente após a compra, você recebe um email com o link para download de todos os materiais. Acesso instantâneo, sem espera.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- URGENCIA -->
+<section class="urgência">
+    <div class="container fade-in">
+        <h2>Você Tem 2 Escolhas Agora</h2>
+        <div class="choice">
+            <div class="choice-bad">
+                <h4>&#10060; Opção 1: Não Fazer Nada</h4>
+                <p>Continuar fazendo tudo manualmente. Perdendo 2-3 horas por dia. Vendo seus concorrentes crescer mais rápido enquanto você fica para trás.</p>
+            </div>
+            <div class="choice-good">
+                <h4>&#10004; Opção 2: Começar Hoje</h4>
+                <p>Investir R$ 97 hoje. Economizar 40+ horas no mês. Ter mais tempo para vender. Crescer mais rápido. Usar IA a seu favor.</p>
+            </div>
+        </div>
+        <a href="#preco" class="cta-btn">
+            QUERO A OPÇÃO 2 - COMEÇAR AGORA
+            <span class="cta-price">R$ 97,00 com garantia de 30 dias</span>
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>Kadu Kruger</strong> &mdash; IA Pronta para Usar</p>
+    <p style="margin-top:8px;">Suporte: <a href="https://wa.me/5547997907020">WhatsApp (47) 99790-7020</a></p>
+    <p style="margin-top:15px; font-size:11px; color:#475569;">Este produto não garante ganhos financeiros. Os resultados dependem do esforço individual de cada pessoa. Todos os direitos reservados.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        });
+    });
+
+    // Scroll Animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+</script>
+
+</body>
+</html>
